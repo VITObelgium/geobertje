@@ -1,0 +1,27 @@
+#!/bin/bash  
+ 
+#SBATCH --job-name=nlp                                   # Name of job
+#SBATCH --output=stdout                                  # Standard output
+#SBATCH --ntasks=1                                       # Number of CPU processes
+#SBATCH --cpus-per-task=4                                # Number of CPU threads
+#SBATCH --time=7-00:00:00                                # Wall time (format: d-hh:mm:ss)
+#SBATCH --mem=32gb                                       # Amount of memory (units: gb, mg, kb)
+#SBATCH --gpus=a100:1                                    # Number (and type) of GPUs
+#SBATCH --mail-type=FAIL,END                             # Mail events (NONE, BEGIN, END, FAIL, ALL)
+##SBATCH --mail-user=your_vito_email@vito.be             # Where to send email
+
+# Activate pre-installed python environment
+source activate rma_geoe_nlp
+
+GEOBERTJE="/projects/y-drive/un_rma/_GEO/Projecten/GEOBertje"
+
+echo "Pre-training base model (e.g. Bertje) using the unlabeled data"
+srun python pretrain-cli.py \
+    --unlabeled-dataset-file $GEOBERTJE/3_Work_documents/preprocessed_data/unlabeled_lithological_descriptions.csv \
+    --test-size 0.10 \
+    --epochs 50 \
+    # --sample-raw-dataset 1000 \
+    # --ignore-creating-dataset \ 
+    # --ignore-training-model
+
+echo Done.
