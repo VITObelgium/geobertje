@@ -46,13 +46,13 @@ def main() -> None:
     parser.add_argument(
         "--ignore-creating-dataset",
         default=False,
-        action=argparse.BooleanOptionalAction,
+        action='store_true',
         help="Ignore creating of hugging face dataset from the input raw dataset file.",
     )
     parser.add_argument(
         "--ignore-training-model",
         default=False,
-        action=argparse.BooleanOptionalAction,
+        action='store_true',
         help="Ignore training the base model (this can be used for creating only the dataset).",
     )
     parser.add_argument(

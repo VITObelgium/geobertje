@@ -25,7 +25,7 @@ class Config:
     save_hg_dataset: bool = True
     tokenized_hg_dataset_dir: Path = Path("tokenized_dataset")
     save_tokenized_hg_dataset: bool = True
-    label2id: frozendict[str, int] = frozendict(
+    label2id: frozendict = frozendict(
         {
             "fijn_zand": 0,
             "grind": 1,
@@ -38,7 +38,7 @@ class Config:
             "silt": 8,
         }
     )
-    id2label: frozendict[int, str] = frozendict({})
+    id2label: frozendict = frozendict({})
     num_labels: int = 0
     pretrained_tokenizer_name: str = "GroNLP/bert-base-dutch-cased"
     pretrained_base_model_name: str = "GroNLP/bert-base-dutch-cased"

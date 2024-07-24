@@ -1,5 +1,6 @@
 import pandas as pd
-from ftlangdetect import detect
+
+# from ftlangdetect import detect
 
 
 def preprocesstext(df: pd.DataFrame) -> pd.DataFrame:
@@ -27,20 +28,22 @@ def replace_idem_with_description(df: pd.DataFrame) -> pd.DataFrame:
         "beschrijving"
     ].str.partition("idem").rename(columns={2: "beschrijving"})[
         ["beschrijving"]
-    ].reset_index(drop=True)
+    ].reset_index(
+        drop=True
+    )
     temp = temp.set_index(df.loc[idemind, "beschrijving"].index)
     newdf = df.copy(deep=True)
     newdf.loc[idemind, "beschrijving"] = temp
     return newdf
 
 
-def remove_lang_description(
-    df: pd.DataFrame, lang: str = "fr", descr_col: str = "beschrijving"
-) -> pd.DataFrame:
-    """Filter out descriptions in selected language"""
-    langid = df[descr_col].apply(lambda v: detect(text=v, low_memory=False)["lang"])
-    newdf = df[langid != lang]
-    return newdf
+# def remove_lang_description(
+#     df: pd.DataFrame, lang: str = "fr", descr_col: str = "beschrijving"
+# ) -> pd.DataFrame:
+#     """Filter out descriptions in selected language"""
+#     langid = df[descr_col].apply(lambda v: detect(text=v, low_memory=False)["lang"])
+#     newdf = df[langid != lang]
+#     return newdf
 
 
 def remove_multiple_intervals_description(

@@ -8,7 +8,7 @@ from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 
 
 class Conf(Protocol):
-    label2id: frozendict[str, int]
+    label2id: frozendict
 
 
 def calculate_association_metric(
@@ -21,8 +21,8 @@ def calculate_association_metric(
     return association_metric
 
 
-def get_label2id(target_column: str, default_cfg: Conf) -> frozendict[str, int]:
-    label2id: frozendict[str, int]
+def get_label2id(target_column: str, default_cfg: Conf) -> frozendict:
+    label2id: frozendict
     if target_column == "HL_cor":
         label2id = default_cfg.label2id
     elif (target_column == "NL1_cor") or (target_column == "NL2_cor"):

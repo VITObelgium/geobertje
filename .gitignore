@@ -1,0 +1,5 @@
+__pycache__/
+csvdata/
+*.out
+dataset/
+tokenized_dataset/

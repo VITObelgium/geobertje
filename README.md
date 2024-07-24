@@ -12,43 +12,30 @@ To showcase the potential application of GEOBERTje, we fine-tune it on a limited
 For example `Grijs kleiig zand, zeer fijn, met enkele grindjes` will be classified as main lithology: `fijn zand`, second lithology: `klei`, third lithology: `grind`.
 Our classifier obtained higher accuracy than conventional rule-based approaches or zero-shot classification using GPT-4.
 
-GEOBERTje is freely available on [Hugging Face model hub](https://huggingface.co/hghcomphys/geobertje-base-dutch-uncased).
+GEOBERTje is freely available on [Hugging Face](https://huggingface.co/hghcomphys/geobertje-base-dutch-uncased) and also our paper on [arxiv](https://arxiv.org/abs/2407.10991).
 
----
 
+## Model Training
 The following sections provide a detailed descriptions on data preparation, domain adaptation of BERTje for geology, and subsequent fine-tuning for tasks related to lithology classification.
 
+### Environment Setup
+We need to create the required Python environment and this can be done using [poetry](https://python-poetry.org/) as follows:
 
-If you want to run the model, you can skip the next section and go directly to the `Running the model` section. 
-
-## Model training
-
-### Setup Environment 
-#### Create Python Environment 
-
-First of all, we need to create the required conda environment using the following command:
 ```bash
-$ conda env create -f environment.yml
-$ conda activate geobertje
+$ git clone https://github.com/VITObelgium/geobertje.git && cd geobertje
+$ poetry install  
 ```
+This will install [PyTorch](https://pytorch.org/get-started/locally/), [Transformers](https://pypi.org/project/transformers/), [datasets](https://pypi.org/project/datasets/), and few other small packages. Also, the local `lithonlp` package will be installed for use in examples scripts or notebooks (i.e. `import lithonlp`). 
 
-This environment includes [PyTorch](https://pytorch.org/get-started/locally/), [Transformers](https://pypi.org/project/transformers/), [datasets](https://pypi.org/project/datasets/), and few other small packages. 
+_Note_: To install `poetry` try `pipx install poetry` or follow the official [documentation](https://python-poetry.org/docs/#installation). 
 
+Then instead of using `python <script.py>` simply use `poetry run python <script.py>` to run the training or prediction scripts. Or, alternatively use `poetry shell`
 
-#### Install `lithonlp` 
-The `lithonlp` contains the core logic for the data preparation and training. The other folders are simply a command line interface (CLI) to access this library.
+__Note__: If you want to run the model, you can skip the next section and go directly to the `Running the model` section. 
 
-Go to the root directory containing the git repo (anacoda prompt or terminal)
-Run the following command to install the package:
-```bash
-$ pip install .
-```
-This command will install the `lithonlp` package and make it available for use in examples scripts or notebooks (i.e. `import lithonlp`). 
-
-## Dataset 
+### Getting Raw Dataset 
 We can download [dataset](https://huggingface.co/datasets/hghcomphys/geological-borehole-descriptions-dutch) in `.csv` format from the Hugging Face using the following command:
 ```bash
-$ mkdir csvdata
 $ huggingface-cli download hghcomphys/geological-borehole-descriptions-dutch --repo-type dataset --local-dir csvdata
 ```
 We expect two csv files: `unlabeled_lithological_descriptions.csv` and `labeled_lithological_descriptions.csv` in the out put `csvdata` directory.
@@ -79,8 +66,7 @@ $ python dataset-cli.py \
 All necessary parameters are extracted from the default configuration, although additional adjustments can be made using input keywords. 
 The `class weights` and the output directory `tokenized_dataset` will be required during model training.
 
-
-### Fine-tuning
+### Finetuning
 Fine-tuning GEOBERTje for the lithological classification task can be done through the subsequent commands:
 ```bash
 $ cd fine_tuning
@@ -94,8 +80,11 @@ An extra attention should be paid when selecting checkpoints to avoid overfittin
 
 It is also recommended to utilize the output class weights derived from the dataset preparation to enhance the training algorithm's effectiveness in handling input datasets with imbalanced distributions.
 
+---
+
 ## Running the model
 We provide three ways of running the model: Python module, terminal (CLI) and web API.
+
 ### Python module
 ```python
 from lithonlp.predict import DrillCoreClassifier
