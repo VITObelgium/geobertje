@@ -9,7 +9,7 @@ from lithonlp.pretrain import pretrain_model
 def main() -> None:
     default_cfg = get_default_config()
     parser = argparse.ArgumentParser(
-        description="Fine-tune hugging face model on provided drill core dataset."
+        description="Fine-tune the domain adapted model using the labeled dataset."
     )
     parser.add_argument(
         "--trainer-output-dir",
