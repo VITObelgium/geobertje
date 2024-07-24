@@ -6,7 +6,7 @@ from lithonlp.predict import DrillCoreClassifier
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Predict input text using drill core classification model."
+        description="Predict input text using the drill core classification model."
     )
     parser.add_argument("text")
     parser.add_argument(

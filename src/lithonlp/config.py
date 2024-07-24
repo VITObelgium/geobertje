@@ -7,6 +7,7 @@ from frozendict import frozendict
 
 @dataclass
 class Config:
+    """Configuration for the data preprocessing, training, and predictions."""
     raw_dataset_file: Path = Path("raw_dataset.csv")
     input_columns: Tuple[str, ...] = ("beschrijving",)
     output_columns: Tuple[str, ...] = (

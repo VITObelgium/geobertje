@@ -6,6 +6,7 @@ from lithonlp.predict import DrillCoreClassifier
 
 app = FastAPI()
 
+# Path to the trained bundled module
 GEOBERTJE_BUNDLED_MODEL = "/projects/y-drive/un_rma/_GEO/Projecten/GEOBertje/6_Trained_models/fine_tuned/bundled/best"
 
 classifier = DrillCoreClassifier.from_directory(

@@ -11,7 +11,7 @@ from lithonlp.dataset import create_dataset
 def main() -> None:
     default_cfg = get_default_config()
     parser = argparse.ArgumentParser(
-        description="Prepare dataset for NLP-based drill core classification."
+        description="Prepare dataset for the NLP-based drill core classification."
     )
     parser.add_argument(
         "-f",

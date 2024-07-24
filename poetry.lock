@@ -32,17 +32,6 @@ test-trackers = ["comet-ml", "dvclive", "tensorboard", "wandb"]
 testing = ["bitsandbytes", "datasets", "diffusers", "evaluate", "parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
 
 [[package]]
-name = "addict"
-version = "2.4.0"
-description = "Addict is a dictionary whose items can be set using both attribute and item syntax."
-optional = false
-python-versions = "*"
-files = [
-    {file = "addict-2.4.0-py3-none-any.whl", hash = "sha256:249bb56bbfd3cdc2a004ea0ff4c2b6ddc84d53bc2194761636eb314d5cfa5dfc"},
-    {file = "addict-2.4.0.tar.gz", hash = "sha256:b3b2210e0e067a281f5646c8c5db92e99b7231ea8b0eb5f74dbdf9e259d4e494"},
-]
-
-[[package]]
 name = "aiohttp"
 version = "3.9.5"
 description = "Async http client/server framework (asyncio)"
@@ -1024,25 +1013,6 @@ files = [
 ]
 
 [[package]]
-name = "importlib-metadata"
-version = "8.1.0"
-description = "Read metadata from Python packages"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "importlib_metadata-8.1.0-py3-none-any.whl", hash = "sha256:3cd29f739ed65973840b068e3132135ce954c254d48b5b640484467ef7ab3c8c"},
-    {file = "importlib_metadata-8.1.0.tar.gz", hash = "sha256:fcdcb1d5ead7bdf3dd32657bb94ebe9d2aabfe89a19782ddc32da5041d6ebfb4"},
-]
-
-[package.dependencies]
-zipp = ">=0.5"
-
-[package.extras]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
-perf = ["ipython"]
-test = ["flufl.flake8", "importlib-resources (>=1.3)", "jaraco.test (>=5.4)", "packaging", "pyfakefs", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-perf (>=0.9.2)", "pytest-ruff (>=0.2.1)"]
-
-[[package]]
 name = "importlib-resources"
 version = "6.4.0"
 description = "Read resources from Python packages"
@@ -1400,59 +1370,6 @@ intel-openmp = "==2021.*"
 tbb = "==2021.*"
 
 [[package]]
-name = "mmcv"
-version = "2.0.0rc4"
-description = "OpenMMLab Computer Vision Foundation"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "mmcv-2.0.0rc4.tar.gz", hash = "sha256:cefdba5c46c2fa252c42b2a6e6f3067b001c2eb9abcaf51b3e6613b067e986db"},
-]
-
-[package.dependencies]
-addict = "*"
-mmengine = ">=0.2.0"
-numpy = "*"
-opencv-python = ">=3"
-packaging = "*"
-Pillow = "*"
-pyyaml = "*"
-regex = {version = "*", markers = "sys_platform == \"win32\""}
-yapf = "*"
-
-[package.extras]
-all = ["Pillow", "PyTurboJPEG", "addict", "coverage", "lmdb", "mmengine (>=0.2.0)", "ninja", "numpy", "onnx", "onnxoptimizer", "onnxruntime", "packaging", "psutil", "pytest", "pytest-runner", "pyyaml", "regex", "scipy", "tifffile", "yapf"]
-build = ["pytest-runner"]
-optional = ["ninja", "psutil"]
-tests = ["PyTurboJPEG", "coverage", "lmdb", "onnx", "onnxoptimizer", "onnxruntime", "pytest", "scipy", "tifffile"]
-
-[[package]]
-name = "mmengine"
-version = "0.10.4"
-description = "Engine of OpenMMLab projects"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "mmengine-0.10.4-py3-none-any.whl", hash = "sha256:18b681ef36b00dc6f5cc1912031e82814dcc39b9f22f82cb63be0af321fcf7b5"},
-    {file = "mmengine-0.10.4.tar.gz", hash = "sha256:d3ee2148935826fd08c2541d3a23120805884341d0fafe85185327cdc9bf07b7"},
-]
-
-[package.dependencies]
-addict = "*"
-matplotlib = "*"
-numpy = "*"
-opencv-python = ">=3"
-pyyaml = "*"
-regex = {version = "*", markers = "sys_platform == \"win32\""}
-rich = "*"
-termcolor = "*"
-yapf = "*"
-
-[package.extras]
-all = ["addict", "aim (<=3.17.5)", "bitsandbytes", "clearml", "coverage", "dadaptation", "dvclive", "lion-pytorch", "lmdb", "matplotlib", "mlflow", "numpy", "parameterized", "pydantic (==1.10.9)", "pytest", "pyyaml", "regex", "rich", "termcolor", "transformers", "yapf"]
-tests = ["aim (<=3.17.5)", "bitsandbytes", "clearml", "coverage", "dadaptation", "dvclive", "lion-pytorch", "lmdb", "mlflow", "parameterized", "pydantic (==1.10.9)", "pytest", "transformers"]
-
-[[package]]
 name = "mpmath"
 version = "1.3.0"
 description = "Python library for arbitrary-precision floating-point arithmetic"
@@ -1791,32 +1708,6 @@ files = [
 ]
 
 [[package]]
-name = "opencv-python"
-version = "4.10.0.84"
-description = "Wrapper package for OpenCV python bindings."
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "opencv-python-4.10.0.84.tar.gz", hash = "sha256:72d234e4582e9658ffea8e9cae5b63d488ad06994ef12d81dc303b17472f3526"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:fc182f8f4cda51b45f01c64e4cbedfc2f00aff799debebc305d8d0210c43f251"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-macosx_12_0_x86_64.whl", hash = "sha256:71e575744f1d23f79741450254660442785f45a0797212852ee5199ef12eed98"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:09a332b50488e2dda866a6c5573ee192fe3583239fb26ff2f7f9ceb0bc119ea6"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9ace140fc6d647fbe1c692bcb2abce768973491222c067c131d80957c595b71f"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-win32.whl", hash = "sha256:2db02bb7e50b703f0a2d50c50ced72e95c574e1e5a0bb35a8a86d0b35c98c236"},
-    {file = "opencv_python-4.10.0.84-cp37-abi3-win_amd64.whl", hash = "sha256:32dbbd94c26f611dc5cc6979e6b7aa1f55a64d6b463cc1dcd3c95505a63e48fe"},
-]
-
-[package.dependencies]
-numpy = [
-    {version = ">=1.21.0", markers = "python_version <= \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\" and python_version >= \"3.8\""},
-    {version = ">=1.23.5", markers = "python_version >= \"3.11\""},
-    {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\" and python_version < \"3.11\""},
-    {version = ">=1.21.2", markers = "platform_system != \"Darwin\" and python_version >= \"3.10\" and python_version < \"3.11\""},
-    {version = ">=1.19.3", markers = "platform_system == \"Linux\" and platform_machine == \"aarch64\" and python_version >= \"3.8\" and python_version < \"3.10\" or python_version > \"3.9\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_system != \"Darwin\" and python_version < \"3.10\" or python_version >= \"3.9\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
-    {version = ">=1.17.3", markers = "(platform_system != \"Darwin\" and platform_system != \"Linux\") and python_version >= \"3.8\" and python_version < \"3.9\" or platform_system != \"Darwin\" and python_version >= \"3.8\" and python_version < \"3.9\" and platform_machine != \"aarch64\" or platform_machine != \"arm64\" and python_version >= \"3.8\" and python_version < \"3.9\" and platform_system != \"Linux\" or (platform_machine != \"arm64\" and platform_machine != \"aarch64\") and python_version >= \"3.8\" and python_version < \"3.9\""},
-]
-
-[[package]]
 name = "packaging"
 version = "24.1"
 description = "Core utilities for Python packages"
@@ -1864,8 +1755,8 @@ files = [
 [package.dependencies]
 numpy = [
     {version = ">=1.20.3", markers = "python_version < \"3.10\""},
-    {version = ">=1.23.2", markers = "python_version >= \"3.11\""},
     {version = ">=1.21.0", markers = "python_version >= \"3.10\" and python_version < \"3.11\""},
+    {version = ">=1.23.2", markers = "python_version >= \"3.11\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -1990,22 +1881,6 @@ mic = ["olefile"]
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 typing = ["typing-extensions"]
 xmp = ["defusedxml"]
-
-[[package]]
-name = "platformdirs"
-version = "4.2.2"
-description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "platformdirs-4.2.2-py3-none-any.whl", hash = "sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee"},
-    {file = "platformdirs-4.2.2.tar.gz", hash = "sha256:38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"},
-]
-
-[package.extras]
-docs = ["furo (>=2023.9.10)", "proselint (>=0.13)", "sphinx (>=7.2.6)", "sphinx-autodoc-typehints (>=1.25.2)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)"]
-type = ["mypy (>=1.8)"]
 
 [[package]]
 name = "psutil"
@@ -2771,20 +2646,6 @@ files = [
 ]
 
 [[package]]
-name = "termcolor"
-version = "2.4.0"
-description = "ANSI color formatting for output in terminal"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63"},
-    {file = "termcolor-2.4.0.tar.gz", hash = "sha256:aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"},
-]
-
-[package.extras]
-tests = ["pytest", "pytest-cov"]
-
-[[package]]
 name = "threadpoolctl"
 version = "3.5.0"
 description = "threadpoolctl"
@@ -2911,17 +2772,6 @@ huggingface-hub = ">=0.16.4,<1.0"
 dev = ["tokenizers[testing]"]
 docs = ["setuptools-rust", "sphinx", "sphinx-rtd-theme"]
 testing = ["black (==22.3)", "datasets", "numpy", "pytest", "requests", "ruff"]
-
-[[package]]
-name = "tomli"
-version = "2.0.1"
-description = "A lil' TOML parser"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
-    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
-]
 
 [[package]]
 name = "torch"
@@ -3500,22 +3350,6 @@ files = [
 ]
 
 [[package]]
-name = "yapf"
-version = "0.40.2"
-description = "A formatter for Python code"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "yapf-0.40.2-py3-none-any.whl", hash = "sha256:adc8b5dd02c0143108878c499284205adb258aad6db6634e5b869e7ee2bd548b"},
-    {file = "yapf-0.40.2.tar.gz", hash = "sha256:4dab8a5ed7134e26d57c1647c7483afb3f136878b579062b786c9ba16b94637b"},
-]
-
-[package.dependencies]
-importlib-metadata = ">=6.6.0"
-platformdirs = ">=3.5.1"
-tomli = ">=2.0.1"
-
-[[package]]
 name = "yarl"
 version = "1.9.4"
 description = "Yet another URL library"
@@ -3636,4 +3470,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "4430e7db96b8af96de30c00e253d2899614a57e865c801b638736d7a6d7eac31"
+content-hash = "080eb8028f7bef0bb81b55ceea55156cbcbaad85f163512a3f666391acb61fb7"

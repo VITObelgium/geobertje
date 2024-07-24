@@ -3,3 +3,5 @@ csvdata/
 *.out
 dataset/
 tokenized_dataset/
+stdout
+stderr

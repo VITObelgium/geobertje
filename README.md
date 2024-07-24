@@ -14,6 +14,7 @@ Our classifier obtained higher accuracy than conventional rule-based approaches 
 
 GEOBERTje is freely available on [Hugging Face](https://huggingface.co/hghcomphys/geobertje-base-dutch-uncased) and also our paper on [arxiv](https://arxiv.org/abs/2407.10991).
 
+---
 
 ## Model Training
 The following sections provide a detailed descriptions on data preparation, domain adaptation of BERTje for geology, and subsequent fine-tuning for tasks related to lithology classification.
