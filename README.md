@@ -123,3 +123,16 @@ $ uvicorn deploy:app --reload --host=0.0.0.0 --port=56123
 ```
 You can then access it via `http://HOST_NAME:56123/docs#/predict`.
 
+## Citation
+If you use GEOBERTje or fine-tune the model, please include this citation.
+```bibtex
+@misc{ghorbanfekr2024classificationgeologicalboreholedescriptions,
+      title={Classification of Geological Borehole Descriptions Using a Domain Adapted Large Language Model}, 
+      author={Hossein Ghorbanfekr and Pieter Jan Kerstens and Katrijn Dirix},
+      year={2024},
+      eprint={2407.10991},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.10991}, 
+```
+
