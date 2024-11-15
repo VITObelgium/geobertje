@@ -77,7 +77,8 @@ $ python train-cli.py \
 ```
 This script trains the model using the input tokenized dataset directory and stores the model checkpoint within the trainer. 
 These checkpoints can then be employed to create a classifier model. 
-An extra attention should be paid when selecting checkpoints to avoid overfitting (e.g. by comparing train and evaluation loss values)
+An extra attention should be paid when selecting checkpoints to avoid overfitting (e.g. by comparing train and evaluation loss values).
+The `PATH_TO_GEOBERTJE` must be replaced by the path to trained domain-adapted model checkpoint directory.  
 
 It is also recommended to utilize the output class weights derived from the dataset preparation to enhance the training algorithm's effectiveness in handling input datasets with imbalanced distributions.
 
@@ -107,6 +108,8 @@ $ python predict-cli.py \
     --bundled-model-path PATH_TO_MODEL \ 
     "geel grijs heteromorf zand met fijn grind"   
 ```
+The `PATH_TO_MODEL` refers to the path to the trained fined-tuned model checkpoint directory. 
+
 Output:
 ```bash
 {
