@@ -9,7 +9,7 @@ from lithonlp.pretrain import pretrain_model
 def main() -> None:
     default_cfg = get_default_config()
     parser = argparse.ArgumentParser(
-        description="Fine-tune the domain adapted model using the labeled dataset."
+        description="Fine-tune hugging face model on provided drill core dataset."
     )
     parser.add_argument(
         "--trainer-output-dir",
@@ -46,13 +46,13 @@ def main() -> None:
     parser.add_argument(
         "--ignore-creating-dataset",
         default=False,
-        action='store_true',
+        action='store_false',
         help="Ignore creating of hugging face dataset from the input raw dataset file.",
     )
     parser.add_argument(
-        "--ignore-training-model",
+        "--ignore-training-model"
         default=False,
-        action='store_true',
+        action='store_false',
         help="Ignore training the base model (this can be used for creating only the dataset).",
     )
     parser.add_argument(
@@ -67,6 +67,12 @@ def main() -> None:
         type=int,
         help="Randomly sample input dataset.",
     )
+    parser.add_argument(
+        "--learning-rate",
+        default=default_cfg.trainer_learning_rate,
+        type=float,
+        help="Training learning rate.",
+    )
     args = parser.parse_args()
 
     cfg = Config(
@@ -75,6 +81,7 @@ def main() -> None:
         pretrained_tokenizer_name=args.pretrained_tokenizer,
         trainer_num_epochs=args.epochs,
         trainer_batch_size=args.batch_size,
+        trainer_learning_rate=args.learning_rate,
         test_size=args.test_size,
         class_weights_save=False,
         sample_raw_dataset=args.sample_raw_dataset,

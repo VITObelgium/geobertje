@@ -57,12 +57,19 @@ def main() -> None:
         type=int,
         help="number of samples in each batch.",
     )
+    parser.add_argument(
+        "--learning-rate",
+        default=default_cfg.trainer_learning_rate,
+        type=float,
+        help="Training learning rate.",
+    )
     args = parser.parse_args()
 
     cfg = Config(
         target_column=args.target_column,
         trainer_num_epochs=args.epochs,
         trainer_batch_size=args.batch_size,
+        trainer_learning_rate=args.learning_rate,
         label2id=utils.get_label2id(args.target_column, default_cfg),
         pretrained_base_model_name=args.pretrained_base_model,
         pretrained_tokenizer_name=args.pretrained_tokenizer,

@@ -7,7 +7,6 @@ from frozendict import frozendict
 
 @dataclass
 class Config:
-    """Configuration for the data preprocessing, training, and predictions."""
     raw_dataset_file: Path = Path("raw_dataset.csv")
     input_columns: Tuple[str, ...] = ("beschrijving",)
     output_columns: Tuple[str, ...] = (
@@ -46,6 +45,7 @@ class Config:
     trainer_output_dir: Path = Path("trainer")
     trainer_num_epochs: int = 10
     trainer_batch_size: int = 32
+    trainer_learning_rate: float = 1e-4
     random_seed: int = 2023
     preprocess_text: bool = True
     class_weights_save: bool = True

@@ -66,11 +66,9 @@ def create_dataset(cfg: Optional[Config] = None) -> None:
 
     print("calculating class weights (to be used for model training)")
     print(f"label2id={cfg.label2id}")
-    classes = list(cfg.label2id.values())
+    classes = np.array(list(cfg.label2id.values()))
     df_train_label = df[df[cfg.split_column] == "train"][cfg.label_column]
-    class_weights = compute_class_weight(
-        "balanced", classes=np.array(classes), y=df_train_label
-    )
+    class_weights = compute_class_weight("balanced", classes=classes, y=df_train_label)
     print(f"{class_weights=}")
     if cfg.class_weights_save:
         filename = Path(cfg.tokenized_hg_dataset_dir.parent, cfg.class_weights_filename)
@@ -85,12 +83,12 @@ def create_dataset(cfg: Optional[Config] = None) -> None:
     )
     if cfg.save_hg_dataset:
         print(f"saving hugging faces dataset (path='{cfg.hg_dataset_dir}')")
-        dataset.save_to_disk(str(cfg.hg_dataset_dir))
+        dataset.save_to_disk(cfg.hg_dataset_dir)
 
     if cfg.save_tokenized_hg_dataset:
         print("tokenizing dataset")
         tokenizer = AutoTokenizer.from_pretrained(
-            str(cfg.pretrained_tokenizer_name), do_lower_case=True
+            cfg.pretrained_tokenizer_name, do_lower_case=True
         )
         tokenized_dataset = tokenize_dataset(dataset, tokenizer)
         print(

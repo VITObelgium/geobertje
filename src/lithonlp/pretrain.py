@@ -72,6 +72,7 @@ def pretrain_model(
         output_dir=str(cfg.trainer_output_dir),
         per_device_train_batch_size=cfg.trainer_batch_size,
         per_device_eval_batch_size=cfg.trainer_batch_size,
+        learning_rate=cfg.trainer_learning_rate,
         num_train_epochs=cfg.trainer_num_epochs,
         logging_strategy="epoch",
         evaluation_strategy="epoch",
