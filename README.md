@@ -129,13 +129,13 @@ You can then access it via `http://HOST_NAME:56123/docs#/predict`.
 ## Citation
 If you use GEOBERTje or fine-tune the model, please include this citation.
 ```bibtex
-@misc{ghorbanfekr2024classificationgeologicalboreholedescriptions,
-      title={Classification of Geological Borehole Descriptions Using a Domain Adapted Large Language Model}, 
-      author={Hossein Ghorbanfekr and Pieter Jan Kerstens and Katrijn Dirix},
-      year={2024},
-      eprint={2407.10991},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.10991}, 
+@article{GHORBANFEKR2025100229,
+title = {Classification of geological borehole descriptions using a domain adapted large language model},
+author = {Hossein Ghorbanfekr and Pieter Jan Kerstens and Katrijn Dirix},
+journal = {Applied Computing and Geosciences},
+year = {2025},
+volume = {25},
+pages = {100229},
+doi = {https://doi.org/10.1016/j.acags.2025.100229},
+}
 ```
-
